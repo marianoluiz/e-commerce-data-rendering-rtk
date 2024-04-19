@@ -1,9 +1,6 @@
-import React from 'react'
 
-const CartSlice = () => {
-  return (
-    <div>CartSlice</div>
-  )
-}
+const CartSlice = ({
+ 
+});
 
-export default CartSlice
+
