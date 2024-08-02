@@ -15,7 +15,7 @@ reducers: An object containing reducer functions. Each key-value pair represents
 /* Step 5: Reducers creation and export actions */
 
 const initialState = {
-    cardItems: [],
+    cartItems: [],
 };
 
 const CartSlice =  createSlice({
@@ -23,7 +23,7 @@ const CartSlice =  createSlice({
  initialState,
  reducers: {
     addItemToCart(state, action) {
-        const existingItem = state.cardItems.find(item.id === action.payload.id);
+        const existingItem = state.cartItems.find(item => item.id === action.payload.id);
 
         if(existingItem) {
             existingItem.quantity += 1;
@@ -54,19 +54,25 @@ const CartSlice =  createSlice({
         const itemToIncrease = state.cartItems.find(item => item.id === action.payload);
 
         if(itemToIncrease) {
-            itemToIncrease += 1;
+            itemToIncrease.quantity += 1;
         }
     },
     decreaseItemQuantity(state, action) {
         const itemToDecrease = state.cartItems.find(item => item.id === action.payload);
 
         if(itemToDecrease && itemToDecrease > 1) {
-            itemToDecrease -= 1;
+            itemToDecrease.quantity -= 1;
         }
     },
  }
 });
 
+
+/* This line uses object destructuring to extract multiple action creators from CartSlice.actions */
+/*
+These action creators are functions that return action objects. They are used to dispatch actions to the Redux store, which will then be handled by the reducer to update the state. 
+*/
+/* This line exports the action creators defined in the CartSlice. These are used in your components or other parts of your application to dispatch actions. */
 export const {
     addItemToCart,
     removeItemFromCart,
@@ -74,4 +80,7 @@ export const {
     increaseItemQuantity,
     decreaseItemQuantity
 } = CartSlice.actions;
+
+
+/* This line exports the reducer function from the slice. This reducer is then used to configure the Redux store. */
 export default CartSlice.reducer;
