@@ -5,13 +5,10 @@ import './ProductList.css';
     also, I need to install @reduxjs/toolkit and react-redux as a third-party module. */
 /* Step 2: Implementing ProductList component */
 
-
 /* Step 7: Add product and store data globally */
 import { useDispatch } from 'react-redux';
 import { useState } from 'react';
 import { addItemToCart } from './CartSlice';
-
-
 
 const ProductList = () => {
     const dispatch = useDispatch();
