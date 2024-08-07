@@ -10,11 +10,14 @@ const ShoppingCart = () => {
 
     const dispatch = useDispatch();
     /*
-    useDispatch: A hook provided by React Redux to access the dispatch function.
-
     dispatch: This function is used to send actions to the Redux store to update the state.
     */
+    
+    /* useSelector is a hook provided by react-redux that allows you to access the Redux store's state from within a functional React component.  */
+
     const cartItems = useSelector(state => state.cart.cartItems);
+
+
     const totalAmount = cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
   /* cartItems.reduce: This method iterates over the cartItems array to calculate a single value, in this case, the total amount. */
 

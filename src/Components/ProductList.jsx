@@ -22,20 +22,28 @@ const ProductList = () => {
 
   const handleAddToCart = product => {
     dispatch(addItemToCart(product));
-    setDisabledProducts([...disabledProducts, product.id]); // Mark the product as disabled
+    /* product is the whole element it self */
+
+    /* setDisabledProducts([...disabledProducts, product.id]); */ 
+    
+    // adds the product to the disabledproducts state in case you want the product to be disabled
   };
 
   return (
     <div className="product-list">
       <h2 className="product-list-title">Products</h2>
       <ul className="product-list-items">
+
         {products.map(product => (
             <li key={product.id} className="product-list-item">
                 <span>{product.name} - ${product.price} </span>
+
                 <button
+                /* changes class to disabled if it is in disabledProducts array */
                     className={`add-to-cart-btn ${disabledProducts.includes(product.id) ? 'disabled' : ''}`}
 
                     onClick={() => handleAddToCart(product)}
+
                     disabled={disabledProducts.includes(product.id)} // Disable button if product is in disabledProducts 
                     >
 
