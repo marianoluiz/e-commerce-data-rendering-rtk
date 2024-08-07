@@ -18,8 +18,10 @@ const ShoppingCart = () => {
     const cartItems = useSelector(state => state.cart.cartItems);
 
 
+    /* reduce is a javascript function that accumulates value so technically, all prices times qty would be accumulated */
+    
     const totalAmount = cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
-  /* cartItems.reduce: This method iterates over the cartItems array to calculate a single value, in this case, the total amount. */
+    /* cartItems.reduce: This method iterates over the cartItems array to calculate a single value, in this case, the total amount. */
 
   /* 0: The initial value of the accumulator (total). */
 

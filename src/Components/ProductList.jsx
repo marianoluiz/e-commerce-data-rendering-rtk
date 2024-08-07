@@ -22,7 +22,7 @@ const ProductList = () => {
 
   const handleAddToCart = product => {
     dispatch(addItemToCart(product));
-    /* product is the whole element it self */
+    /* product is the  element it self */
 
     /* setDisabledProducts([...disabledProducts, product.id]); */ 
     
